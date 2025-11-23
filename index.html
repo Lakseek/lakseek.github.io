@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-Hant">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Portfolio</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<header class="site-header" role="banner">
+			<div class="container">
+				<h1 class="site-title">吳家獻</h1>
+				<p class="site-subtitle">輔仁大學 - 醫學資訊與創新應用學士學位學程</p>
+				<nav class="main-nav" aria-label="主導覽">
+					<ul>
+						<li><a href="#about">關於我</a></li>
+						<li><a href="#skills">技能</a></li>
+						<li><a href="#experience">經歷</a></li>
+						<li><a href="#portfolio">作品集</a></li>
+						<li><a href="#contact">聯絡</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main id="main" class="container" role="main">
+			<!-- About -->
+			<section id="about" class="section about" aria-labelledby="about-heading">
+				<h2 id="about-heading">關於我</h2>
+				<p>
+					我是吳家獻，我今年 18 歲，來自台灣，對電腦硬體與程式設計充滿熱情。
+				</p>
+			</section>
+
+			<!-- Skills -->
+			<section id="skills" class="section skills" aria-labelledby="skills-heading">
+				<h2 id="skills-heading">技能</h2>
+				<ul class="skill-list">
+					<li><strong>電腦硬體：</strong>能夠從無到有組出一台電腦，雖然不一定能一次就成功開機。</li>
+					<li><strong>手機挑選：</strong>能夠根據需求幫朋友挑出適合他的手機</li>
+					<li><strong>節奏遊戲：</strong>有豐富的平板節奏遊戲經驗，不過這算特殊技能嗎（？）</li>
+				</ul>
+			</section>
+
+			<!-- Experience -->
+			<section id="experience" class="section experience" aria-labelledby="experience-heading">
+				<h2 id="experience-heading">經歷</h2>
+				<div class="timeline">
+					<article class="timeline-item">
+						<h3>Python 選修課 - 永春高中</h3>
+						<p class="meta">2022 · 高一上學期</p>
+						<p>忘記課程的名稱是什麼了，大概就是簡單的學習 Python，並且做出自己的軟體（我記得我是做出一個溫標轉換器，有點似曾相似呢）。</p>
+					</article>
+
+					<article class="timeline-item">
+						<h3>資訊研究社 - 永春高中</h3>
+						<p class="meta">2022 - 2023 · 高一至高二</p>
+						<p>在資訊研究社中學習到了 App Inventor，不過只是簡單介紹，當時的社課認真聽的人很少所以進度很慢。</p>
+					</article>
+                    <article class="timeline-item">
+						<h3>資訊科技 - 永春高中</h3>
+						<p class="meta">2023 - 2025 · 高二至高三</p>
+						<p>資訊科技課有學過 C++，並且有寫出一個筆記 App，那時的檔案也還留著（當然有請 AI 協助）。</p>
+					</article>
+				</div>
+			</section>
+
+			<!-- Portfolio -->
+			<section id="portfolio" class="section portfolio" aria-labelledby="portfolio-heading">
+				<h2 id="portfolio-heading">作品集</h2>
+				<div class="projects">
+					<article class="project">
+						<h3>Python 溫標轉換程式</h3>
+						<p>有使用 Python 製作一個有圖形界面的溫標轉換程式，不過這個作品的檔案弄丟了QQ。</p>
+					</article>
+
+					<article class="project">
+						<h3>猜數字遊戲</h3>
+						<p>這個猜數字遊戲是在有老師輔助的情況下完成的，初步看起來有運用到跟 HTML、JavaScript 等等的技術，不過年代久遠（好像也沒很遠）我甚至不記得做過這個東西了，我是翻找我的雲端硬碟才看到的。</p>
+					</article>
+
+                    <article class="project">
+						<h3>C++ 筆記 App</h3>
+						<p>這個 App 是在 GPT 的幫助下寫出來的（當時我不可能自己憑空生出來一個 App），主要可以寫筆記、顯示所有已儲存的筆記、暫存筆記、刪除暫存筆記、匯出筆記成 TXT 檔案，不過一切都是在純文字介面下操作的。</p>
+					</article>
+				</div>
+			</section>
+
+			<!-- Contact -->
+			<section id="contact" class="section contact" aria-labelledby="contact-heading">
+				<h2 id="contact-heading">聯絡方式</h2>
+				<p>電子郵件：<a href="mailto:414570502@m365.fju.edu.tw">414570502@m365.fju.edu.tw</a></p>
+				<p>GitHub：
+					<a href="https://github.com/Lakseek" target="_blank" rel="noopener noreferrer">Lakseek</a>
+				</p>
+
+				<form class="contact-form" action="mailto:414570502@m365.fju.edu.tw" method="post" encType="text/plain">
+					<label for="name">姓名</label>
+					<input id="name" name="name" type="text" placeholder="你的名字" />
+
+					<label for="message">留言</label>
+					<textarea id="message" name="message" rows="4" placeholder="寫下你的訊息..."></textarea>
+
+					<button type="submit">送出</button>
+				</form>
+			</section>
+		</main>
+
+		<footer class="site-footer" role="contentinfo">
+			<div class="container">
+				<p><span id="year"></span> 年 | 對了，偷偷告訴你，其實這句話有 17 個中文字。</p>
+			</div>
+		</footer>
+
+		<script src="script.js"></script>
+		<script>
+			// 簡單腳本：填入現在年份
+			document.getElementById('year').textContent = new Date().getFullYear();
+		</script>
+	</body>
+</html>
+
