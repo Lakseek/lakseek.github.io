@@ -152,5 +152,3 @@ html[data-theme="dark"]{
 	.skill-list{grid-template-columns:repeat(2,1fr)}
 	.projects{grid-template-columns:repeat(2,1fr)}
 }
-
-
