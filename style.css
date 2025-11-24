@@ -22,7 +22,6 @@ body{
 	line-height:1.5;
 }
 
-/* enable native smooth scrolling for anchor links */
 html{scroll-behavior:smooth}
 
 .container{
@@ -36,13 +35,12 @@ html{scroll-behavior:smooth}
 	background:linear-gradient(90deg, rgba(14,165,164,0.08), rgba(9,146,146,0.04));
 	padding:2.25rem 0;
 	border-bottom:1px solid var(--glass);
-	position:fixed; /* always fixed at top */
+	position:fixed;
 	left:0;right:0;top:0;
 	z-index:900;
 	width:100%;
 	transform:translateY(0);
 	transition:transform .28s ease, box-shadow .18s ease;
-	/* subtle backdrop so content under header blurs when fixed */
 	-webkit-backdrop-filter: blur(6px);
 	backdrop-filter: blur(6px);
 }
@@ -60,7 +58,6 @@ html{scroll-behavior:smooth}
 .main-nav a:hover{background:rgba(14,165,164,0.08);transform:translateY(-1px)}
 .main-nav a:focus{outline:3px solid rgba(14,165,164,0.16);outline-offset:3px}
 
-/* active nav link */
 .main-nav a.active{
 	background:var(--accent-600);
 	color:white;
@@ -73,7 +70,6 @@ html{scroll-behavior:smooth}
 .section:last-of-type{border-bottom:0}
 .section h2{margin:0 0 0.75rem;font-size:1.25rem}
 
-/* ensure anchor targets are scrolled into view below the sticky header */
 .section{scroll-margin-top:var(--header-height,88px)}
 
 /* Skills grid */
@@ -121,8 +117,12 @@ html{scroll-behavior:smooth}
 /* Footer */
 .site-footer{padding:1rem 0;color:var(--muted);text-align:center;font-size:0.95rem}
 
-/* Accessibility: focus-visible */
-a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid rgba(14,165,164,0.16);outline-offset:3px}
+/* Accessibility: focus-visible — use a subtle focus ring instead of a strong colored outline */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
+	outline: none;
+	box-shadow: 0 0 0 4px rgba(14,165,164,0.06);
+	border-radius: 6px;
+}
 
 /* Responsive tweaks */
 @media (max-width:600px){
@@ -132,17 +132,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 	.projects{grid-template-columns:1fr}
 }
 
-/* theme toggle button */
 .theme-toggle{
-	/* float fixed in bottom-right so it's always visible */
 	position:fixed;
 	right:1rem;
-	/* lift slightly so it doesn't cover inline content */
 	bottom:2rem;
 	margin:0;
 	background:var(--surface);
 	border:1px solid rgba(2,6,23,0.06);
 	display:inline-flex;
+	color: var(--text);
 	align-items:center;
 	justify-content:center;
 	height:44px;
@@ -155,17 +153,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 	z-index:1200;
 	white-space:nowrap;
 }
-.theme-toggle:focus{outline:3px solid rgba(14,165,164,0.12);outline-offset:3px}
+.theme-toggle:focus{outline:none;box-shadow:0 0 0 4px rgba(14,165,164,0.06);}
 
-/* header toggle (show/hide header) placed next to theme toggle */
 .header-toggle{
 	position:fixed;
-	right:4.6rem; /* to the left of theme-toggle */
-	/* match theme-toggle lift so both stay aligned */
+	right:4.6rem;
 	bottom:2rem;
 	background:var(--surface);
 	border:1px solid rgba(2,6,23,0.06);
 	display:inline-flex;
+	color: var(--text);
 	align-items:center;
 	justify-content:center;
 	height:44px;
@@ -177,19 +174,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 	z-index:1201;
 	white-space:nowrap;
 }
-.header-toggle:focus{outline:3px solid rgba(14,165,164,0.12);outline-offset:3px}
+.header-toggle:focus{outline:none;box-shadow:0 0 0 4px rgba(14,165,164,0.06);}
 
-/* when header is hidden, slide it up; pointer-events none to let clicks pass through header area */
 .site-header.hidden{transform:translateY(-120%);pointer-events:none}
 
 /* Tooltips for floating buttons (uses data-tooltip attr) */
 .theme-toggle[data-tooltip], .header-toggle[data-tooltip]{
-	position:fixed; /* keep existing fixed positioning on the element itself */
+	position:fixed;
 }
 .theme-toggle[data-tooltip]::after,
 .header-toggle[data-tooltip]::after{
 	content: attr(data-tooltip);
-	position: absolute; /* positioned relative to the fixed button */
+	position: absolute;
 	bottom: calc(100% + 10px);
 	left: 50%;
 	transform: translateX(-50%) translateY(-4px);
@@ -226,7 +222,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 	z-index:1300;
 }
 
-/* show tooltip on focus (keyboard) for accessibility */
 .theme-toggle[data-tooltip]:focus::after,
 .theme-toggle[data-tooltip]:focus::before,
 .theme-toggle[data-tooltip]:focus-visible::after,
@@ -246,7 +241,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 	.header-toggle[data-tooltip]:hover::before{
 		opacity:1;
 	}
-	/* hover transform for floating buttons only on hover-capable devices */
 	.theme-toggle:hover,
 	.header-toggle:hover{
 		transform:translateY(-2px);
@@ -307,7 +301,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 	opacity:0;
 	transition:opacity .12s ease;
 }
-/* show inline link tooltip on focus for accessibility */
 .contact a[data-tooltip]:focus::after,
 .contact a[data-tooltip]:focus::before,
 .contact a[data-tooltip]:focus-visible::after,
@@ -326,7 +319,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 /* Make sure body content sits below the fixed header using the dynamic header height */
 body{padding-top:var(--header-height,88px)}
 
-/* smaller on very small screens */
 @media (max-width:420px){
 	.theme-toggle{right:0.6rem;bottom:1rem;padding:0 0.6rem;height:40px}
 	.header-toggle{right:3.2rem;bottom:1rem;padding:0 0.6rem;height:40px}
