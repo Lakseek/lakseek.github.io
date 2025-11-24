@@ -22,6 +22,9 @@ body{
 	line-height:1.5;
 }
 
+/* enable native smooth scrolling for anchor links */
+html{scroll-behavior:smooth}
+
 .container{
 	width:90%;
 	max-width:var(--max-width);
@@ -47,6 +50,12 @@ body{
 }
 .main-nav a:hover{background:rgba(14,165,164,0.08);transform:translateY(-1px)}
 .main-nav a:focus{outline:3px solid rgba(14,165,164,0.16);outline-offset:3px}
+
+/* active nav link */
+.main-nav a.active{
+	background:var(--accent-600);
+	color:white;
+}
 
 /* Sections */
 .section{padding:2rem 0;border-bottom:1px solid var(--glass)}
