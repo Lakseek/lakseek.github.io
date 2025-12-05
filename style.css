@@ -72,23 +72,38 @@ html{scroll-behavior:smooth}
 
 .section{scroll-margin-top:var(--header-height,88px)}
 
-/* Skills grid */
+/* Skills grid (progress bars) */
 .skill-list{
 	display:grid;
 	grid-template-columns:repeat(3,1fr);
 	gap:0.75rem;
 	padding:0;margin:0;list-style:none;
 }
-.skill-list li{
-    background:var(--surface);
-    padding:0.8rem 1rem;
-    border-radius:8px;
-    box-shadow:0 1px 2px rgba(2,6,23,0.04);
-    transition:transform .18s ease, box-shadow .18s ease;
-    display:flex;flex-direction:column;gap:0.25rem;
+.skill{
+	background:var(--surface);
+	padding:0.8rem 1rem;
+	border-radius:8px;
+	box-shadow:0 1px 2px rgba(2,6,23,0.04);
+	transition:transform .18s ease, box-shadow .18s ease;
+	display:flex;
+	flex-direction:column;
+	gap:0.5rem;
 }
-.skill-list li strong{font-weight:600}
-.skill-list li:hover, .skill-list li:focus-within{transform:translateY(-6px) scale(1.02);box-shadow:0 8px 20px rgba(15,23,42,0.08)}
+.skill-header{display:flex;justify-content:space-between;align-items:center;gap:0.5rem}
+.skill-header strong{font-weight:600}
+.skill-percent{color:var(--muted);font-size:0.95rem}
+.skill:focus-within, .skill:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 8px 20px rgba(15,23,42,0.08)}
+
+/* Progress bar */
+.progress{background:linear-gradient(90deg, rgba(2,6,23,0.03), rgba(2,6,23,0.02));border-radius:999px;height:12px;overflow:hidden}
+.progress-bar{height:100%;width:0;background:var(--accent);border-radius:999px;transition:width 920ms cubic-bezier(.2,.9,.2,1)}
+.progress[aria-valuenow]{position:relative}
+.progress[aria-valuenow]::after{content: attr(aria-valuenow) '%';position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:0.8rem;color:transparent}
+
+/* Make progress bars slightly taller on larger screens */
+@media (min-width:900px){
+	.progress{height:14px}
+}
 
 /* Timeline / Experience */
 .timeline{display:block}

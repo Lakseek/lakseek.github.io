@@ -32,14 +32,40 @@
 				</p>
 			</section>
 
-			<!-- Skills -->
+			<!-- Skills (progress bars) -->
 			<section id="skills" class="section skills" aria-labelledby="skills-heading">
 				<h2 id="skills-heading">技能</h2>
-				<ul class="skill-list">
-					<li><strong>電腦硬體：</strong>能夠從無到有組出一台電腦，雖然不一定能一次就成功開機。</li>
-					<li><strong>手機挑選：</strong>能夠根據需求幫朋友挑出適合他的手機。</li>
-					<li><strong>節奏遊戲：</strong>有豐富的平板節奏遊戲經驗，不過這算特殊技能嗎（？）。</li>
-				</ul>
+				<div class="skill-list">
+					<div class="skill" data-percent="85">
+						<div class="skill-header">
+							<strong>電腦硬體</strong>
+							<span class="skill-percent" aria-hidden="true">30%</span>
+						</div>
+						<div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="電腦硬體 熟練度">
+							<div class="progress-bar" data-percent="30"></div>
+						</div>
+					</div>
+
+					<div class="skill" data-percent="60">
+						<div class="skill-header">
+							<strong>手機挑選</strong>
+							<span class="skill-percent" aria-hidden="true">60%</span>
+						</div>
+						<div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="手機挑選 熟練度">
+							<div class="progress-bar" data-percent="60"></div>
+						</div>
+					</div>
+
+					<div class="skill" data-percent="95">
+						<div class="skill-header">
+							<strong>節奏遊戲</strong>
+							<span class="skill-percent" aria-hidden="true">90%</span>
+						</div>
+						<div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="節奏遊戲 熟練度">
+							<div class="progress-bar" data-percent="90"></div>
+						</div>
+					</div>
+				</div>
 			</section>
 
 			<!-- Experience -->
