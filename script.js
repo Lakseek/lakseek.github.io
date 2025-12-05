@@ -195,3 +195,28 @@
 	// initial
 	updateHeaderHeight();
 })();
+
+
+// Skills progress bars: initialize widths from `data-percent` and animate
+(function(){
+	function initSkillProgress(){
+		const bars = Array.from(document.querySelectorAll('.progress-bar'));
+		bars.forEach((bar, i) => {
+			const percent = Math.max(0, Math.min(100, Number(bar.getAttribute('data-percent') || 0)));
+			const progress = bar.closest('.progress');
+			const skill = bar.closest('.skill');
+			if(progress) progress.setAttribute('aria-valuenow', '0');
+			// staggered animation so multiple bars don't move at once
+			setTimeout(()=>{
+				bar.style.width = percent + '%';
+				if(progress) progress.setAttribute('aria-valuenow', String(percent));
+				// keep visible percent label in-sync if present
+				const pctLabel = skill ? skill.querySelector('.skill-percent') : null;
+				if(pctLabel) pctLabel.textContent = percent + '%';
+			}, 120 + i * 120);
+		});
+	}
+
+	if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initSkillProgress);
+	else initSkillProgress();
+})();
