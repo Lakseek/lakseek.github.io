@@ -1,4 +1,4 @@
-// Theme & header toggle: ensure buttons exist before binding
+// Theme & header toggle
 (function(){
 	function initThemeAndHeaderToggle(){
 		const toggle = document.getElementById('theme-toggle');
@@ -44,7 +44,6 @@
 				document.documentElement.style.setProperty('--header-hidden','true');
 				if(headerToggle) { headerToggle.textContent = '顯示頂欄'; headerToggle.setAttribute('aria-pressed','false'); }
 			}
-			// update header height var (updateHeaderHeight handles hidden state)
 			if(typeof updateHeaderHeight === 'function') updateHeaderHeight();
 			localStorage.setItem('headerVisible', visible ? '1' : '0');
 		}
@@ -69,7 +68,7 @@
 	const navLinks = Array.from(document.querySelectorAll('.main-nav a.nav-link'));
 	const sections = navLinks.map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
 
-	// Click handler: use smooth scroll and update aria
+	// Click handler
 	navLinks.forEach(a => {
 		a.addEventListener('click', (e)=>{
 			const id = a.getAttribute('href').slice(1);
